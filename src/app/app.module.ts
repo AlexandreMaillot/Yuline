@@ -25,6 +25,7 @@ import { ExtraDeckComponent } from './Components/extra-deck/extra-deck.component
 import { FourOfFourComponent } from './Components/four-of-four/four-of-four.component';
 import { DeckManageComponent } from './Components/deck-manage/deck-manage.component';
 import { NewsComponent } from './Components/news/news.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { NewsComponent } from './Components/news/news.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
