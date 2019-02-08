@@ -6,9 +6,17 @@
     [rowspan]="tile.rows"
     [style.border]="color_seleccionado=='red' ? '5px solid black' :'1px solid white'"
     [style.border-radius]="'5px'"
-    [style.text-align]= "'left'"
-  >
+    [style.text-align]= "'left'" >
+
     <mat-grid-tile-header>{{tile.text}}</mat-grid-tile-header>
+    <app-filters *ngIf='tile.text == "Filter"'></app-filters>
+    <app-deck *ngIf='tile.text == "Deck"'></app-deck>
+    <app-deck-list *ngIf='tile.text == "Liste Deck"'></app-deck-list>
+    <app-extra-deck *ngIf='tile.text == "Extra-Deck"'></app-extra-deck>
+    <app-side-deck *ngIf='tile.text == "Side-Deck"'></app-side-deck>
+    <app-card-info *ngIf='tile.text == "Description"'></app-card-info>
+    <app-card *ngIf='tile.text == "Carte"'></app-card>
+    <app-card-list *ngIf='tile.text == "Resultat"'></app-card-list>
   </mat-grid-tile>
 </mat-grid-list>
 </div>
