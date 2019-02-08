@@ -1,9 +1,13 @@
-<mat-grid-list cols="4" rowHeight="100px">
+<div class="mui-container">
+<mat-grid-list cols="16" rowHeight="75px">
   <mat-grid-tile
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
     [rowspan]="tile.rows"
-    [style.background]="tile.color">
+    [style.border]="color_seleccionado=='red' ? '5px solid black' :'1px solid white'"
+    [style.border-radius]="'5px'"
+    [style.margin]="'5px'">
     {{tile.text}}
   </mat-grid-tile>
 </mat-grid-list>
+</div>

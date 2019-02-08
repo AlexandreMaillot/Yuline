@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 export interface Tile {
-  color: string;
   cols: number;
   rows: number;
   text: string;
@@ -12,11 +11,17 @@ export interface Tile {
 })
 export class DeckManageComponent implements OnInit {
   tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 4, color: 'lightblue'},
-    {text: 'Two', cols: 2, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 2, rows: 3, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 4, color: '#DDBDF1'},
-    {text: 'Four', cols: 1, rows: 4, color: '#DDBDF1'},
+    {text: 'One', cols: 6, rows: 1},
+    {text: 'One', cols: 5, rows: 1},
+    {text: 'One', cols: 5, rows: 2},
+    {text: 'Two', cols: 4, rows: 8},
+    {text: 'Three', cols: 7, rows: 6},
+    {text: 'Four', cols: 5, rows: 7},
+    {text: 'Four', cols: 7, rows: 1},
+    {text: 'Four', cols: 7, rows: 1},
+
+
+
   ];
   constructor() { }
 
