@@ -18,8 +18,6 @@ export class Card {
   private ban_goat : string;//The status of the card on the GOAT Format Ban List.
 
 
-  constructor(c: Card) {
-    Object.assign(this,c);
+  constructor() {
   }
-
 }
