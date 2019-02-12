@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CardListComponent} from "../card-list/card-list.component";
+import {Card} from '../../Class/card';
 export interface Tile {
   cols: number;
   rows: number;
@@ -11,6 +12,7 @@ export interface Tile {
   styleUrls: ['./deck-manage.component.css']
 })
 export class DeckManageComponent implements OnInit {
+  idModelCard: Card;
   tiles: Tile[] = [
     {text: 'Liste Deck', cols: 6, rows: 2},
     {text: 'Filter', cols: 5, rows: 2},
@@ -23,7 +25,11 @@ export class DeckManageComponent implements OnInit {
 
   ];
   constructor() { }
-
+  selection(card: Card) {
+    this.idModelCard = card;
+    console.log('manage');
+    console.log(this.idModelCard);
+  }
   ngOnInit() {
   }
 

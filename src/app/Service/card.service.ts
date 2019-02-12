@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class CardService {
   private cards: Card[] = [];
-  card: Card = null;
+  private card: Card = null;
   idEnCour: number;
   cardsSubject = new Subject<Card[]>();
   cardSubject = new Subject<Card>();

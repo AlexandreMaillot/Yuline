@@ -1,8 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {CardService} from "../../Service/card.service";
-import {forEach} from "@angular/router/src/utils/collection";
-import {Card} from "../../Class/card";
-import {CardComponent} from "../card/card.component";
+import {CardService} from '../../Service/card.service';
+import {Card} from '../../Class/card';
 
 @Component({
   selector: 'app-card-list',
@@ -11,8 +9,9 @@ import {CardComponent} from "../card/card.component";
 })
 export class CardListComponent implements OnInit {
   cartesList: Array<Card>;
+  @Output() sortie: EventEmitter<Card> = new EventEmitter<Card>();
   constructor(private CarteService: CardService) { }
-  @Output() idCardModel = new EventEmitter<number>();
+
   ngOnInit() {
     this.cartesList =  new Array<Card>();
     this.CarteService.getAllCards().then( cartes => {
@@ -22,7 +21,13 @@ export class CardListComponent implements OnInit {
     console.log(this.cartesList);
   }
   affImg(idCard: number) {
-    console.log(idCard);
+    this.CarteService.getCardById(idCard).then( carte => {
+      // @ts-ignore
+      this.sortie.emit(carte);
+      console.log(carte);
+    });
+
+
   }
 
 }
