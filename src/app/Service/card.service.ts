@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Card} from "../Class/card";
-import {Subject} from "rxjs";
+import {Observable, of, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
 
 
 @Injectable({
@@ -10,9 +9,13 @@ import {map} from "rxjs/operators";
 })
 export class CardService {
   private cards: Card[] = [];
-  private card: Card = null;
-  private idEncour: number;
-  cardSubject = new Subject<Card[]>();
+  card: Card = null;
+  idEnCour: number;
+  cardsSubject = new Subject<Card[]>();
+  cardSubject = new Subject<Card>();
+
+
+
   getAllCards() {
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
@@ -44,6 +47,8 @@ export class CardService {
 
             if (res != null) {
               this.card = res;
+              console.log(this.card);
+              // this.cardSubject = this.card.;
               resolve(this.card);
             }
 
@@ -54,6 +59,9 @@ export class CardService {
           }
         );
     });
+  }
+  setIdEnCour(id: number){
+    this.idEnCour = id;
   }
   constructor(private http: HttpClient) { }
 }

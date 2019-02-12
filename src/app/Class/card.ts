@@ -1,5 +1,5 @@
 export class Card {
-  id: string; // - ID or Passocde of the card.
+  id: number; // - ID or Passocde of the card.
   name : string;// Name of the card.
   private desc : string;// Card description/effect.
   private atk : number;// The ATK value of the card.

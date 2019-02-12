@@ -17,10 +17,12 @@ mat-list {
 .listcarte {
   border: 2px solid fuchsia;
 
-}
 
+}
+.cardDescript:hover{
+  background-color: gainsboro;
+}
 img {
-  height: 70px;
-  width: 80px;
-  display: block;
+  width: 65px;
+  height: 75px;
 }

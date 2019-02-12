@@ -7,12 +7,11 @@
       [style.border]="color_seleccionado=='red' ? '5px solid black' :'1px solid white'"
       [style.border-radius]="'5px'"
       [style.text-align]="'left'"
-      style="overflow-y: auto"
     >
       <div>
-        <mat-grid-tile-header style="background-color: aquamarine;">{{tile.text}}</mat-grid-tile-header>
+        <mat-grid-tile-header style=" ">{{tile.text}}</mat-grid-tile-header>
       </div>
-      <div  style="width: 100%; background-color: darkgreen;">
+
         <app-filters *ngIf='tile.text == "Filter"'></app-filters>
         <app-deck *ngIf='tile.text == "Deck"'></app-deck>
         <app-deck-list *ngIf='tile.text == "Liste Deck"'></app-deck-list>
@@ -20,7 +19,8 @@
         <app-side-deck *ngIf='tile.text == "Side-Deck"'></app-side-deck>
         <app-card-info *ngIf='tile.text == "Description"'></app-card-info>
         <app-card *ngIf='tile.text == "Carte"'></app-card>
-        <app-card-list *ngIf='tile.text == "Resultat"'></app-card-list>
+      <div  style="width: 100%;height: 100%;margin-top: 110px;overflow-y: auto;">
+        <app-card-list *ngIf='tile.text == "Resultat"' style=""></app-card-list>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
