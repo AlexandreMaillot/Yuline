@@ -18,10 +18,10 @@ export class DeckManageComponent implements OnInit {
     {text: 'Filter', cols: 5, rows: 2},
     {text: 'Carte', cols: 5, rows: 6},
     {text: 'Resultat', cols: 4, rows: 9},
-    {text: 'Deck', cols: 7, rows: 5},
+    {text: 'Deck', cols: 7, rows: 6},
     {text: 'Description', cols: 5, rows: 5},
-    {text: 'Side-Deck', cols: 7, rows: 2},
-    {text: 'Extra-Deck', cols: 7, rows: 2}
+    {text: 'Side-Deck', cols: 7, rows: 1},
+    {text: 'Extra-Deck', cols: 7, rows: 1}
 
   ];
   constructor() { }

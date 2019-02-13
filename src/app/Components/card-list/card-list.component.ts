@@ -11,19 +11,21 @@ export class CardListComponent implements OnInit {
   cardsList: Array<Card>;
   constructor(private cardService: CardService) { }
   @Output() idCardModel = new EventEmitter<number>();
+  @Output()
+  sortie:EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
     this.cardsList =  new Array<Card>();
     this.cardService.getAllCards().then( Cards => {
       // @ts-ignore
-      this.cardsList.push(cartes);
+      this.cardsList.push(Cards);
     });
     console.log(this.cardsList);
   }
-  affImg(idCard: number) {
-    this.CarteService.getCardById(idCard).then( carte => {
+  affImg(idCard: string) {
+    this.cardService.getCardById(idCard).then( card => {
       // @ts-ignore
-      this.sortie.emit(carte);
-      console.log(carte);
+      this.sortie.emit(card);
+      // console.log(carte);
     });
 
 

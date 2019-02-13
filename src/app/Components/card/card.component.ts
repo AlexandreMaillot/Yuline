@@ -7,18 +7,17 @@ import {Card} from '../../Class/card';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit, OnChanges {
-  @Input() c: Card;
+export class CardComponent implements OnInit {
+  @Input() c: Card[];
 
   constructor(private CardService: CardService) {
   }
 
   ngOnInit() {
-    console.log('test');
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-      console.log(changes);
-
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //     console.log(changes);
+  //
+  // }
 }

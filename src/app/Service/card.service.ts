@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import {Card} from "../Class/card";
 import {Observable, of, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-
+export interface Tile {
+  cols: number;
+  rows: number;
+  id: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +42,7 @@ export class CardService {
         );
     });
   }
-  getCardById(id: number){
+  getCardById(id: string){
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
       const SingleCard = this.http.get<Card>('https://db.ygoprodeck.com/api/cardinfo.php?name=' + id)
@@ -60,8 +64,6 @@ export class CardService {
         );
     });
   }
-  setIdEnCour(id: number){
-    this.idEnCour = id;
-  }
+
   constructor(private http: HttpClient) { }
 }

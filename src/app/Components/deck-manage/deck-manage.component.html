@@ -17,8 +17,9 @@
         <app-deck-list *ngIf='tile.text == "Liste Deck"'></app-deck-list>
         <app-extra-deck *ngIf='tile.text == "Extra-Deck"'></app-extra-deck>
         <app-side-deck *ngIf='tile.text == "Side-Deck"'></app-side-deck>
-        <app-card-info *ngIf='tile.text == "Description"'></app-card-info>
-        <app-card *ngIf='tile.text == "Carte"' [c]="idModelCard"></app-card>
+        <app-card-info style="overflow-y: auto;" *ngIf='tile.text == "Description"' [c]="idModelCard"></app-card-info>
+
+        <app-card style="margin-top: 60px; margin-left: 120px" *ngIf='tile.text == "Carte"' [c]="idModelCard"></app-card>
       <div  style="width: 100%;height: 100%;margin-top: 110px;overflow-y: auto;">
         <app-card-list *ngIf='tile.text == "Resultat"' style="" (sortie)="selection($event)"></app-card-list>
       </div>
