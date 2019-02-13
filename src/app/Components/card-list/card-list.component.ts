@@ -10,16 +10,16 @@ import {CardComponent} from "../card/card.component";
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-  cartesList: Array<Card>;
-  constructor(private CarteService: CardService) { }
+  cardsList: Array<Card>;
+  constructor(private cardService: CardService) { }
   @Output() idCardModel = new EventEmitter<number>();
   ngOnInit() {
-    this.cartesList =  new Array<Card>();
-    this.CarteService.getAllCards().then( cartes => {
+    this.cardsList =  new Array<Card>();
+    this.cardService.getAllCards().then( Cards => {
       // @ts-ignore
-      this.cartesList.push(cartes);
+      this.cardsList.push(cartes);
     });
-    console.log(this.cartesList);
+    console.log(this.cardsList);
   }
   affImg(idCard: number) {
     console.log(idCard);
