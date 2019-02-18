@@ -1,4 +1,5 @@
 import {Card} from "./card";
+import {Player} from "./player";
 
 export class Deck {
   private _idDeck: number;
@@ -7,15 +8,25 @@ export class Deck {
   private _mainDeck: Card[];
   private _sideDeck: Card[];
   private _extraDeck: Card[];
+  private _player: Player;
 
-  constructor(idDeck: number, name: string, banList: string, mainDeck: Card[], sideDeck: Card[], extraDeck: Card[]) {
-    this._idDeck = idDeck;
+  constructor(name: string, banList: string, mainDeck: Card[], sideDeck: Card[], extraDeck: Card[], player: Player) {
     this._name = name;
     this._banList = banList;
     this._mainDeck = mainDeck;
     this._sideDeck = sideDeck;
     this._extraDeck = extraDeck;
+    this._player = player;
   }
+
+  get player(): Player {
+    return this.player;
+  }
+
+  set player(value: Player) {
+    this.player = value;
+  }
+
 
   get mainDeck(): Card[] {
     return this._mainDeck;

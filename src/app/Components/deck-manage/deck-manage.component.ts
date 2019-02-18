@@ -14,8 +14,8 @@ export interface Tile {
 export class DeckManageComponent implements OnInit {
   idModelCard: Card;
   tiles: Tile[] = [
-    {text: 'Liste Deck', cols: 6, rows: 2},
-    {text: 'Filter', cols: 5, rows: 2},
+    {text: 'Filter', cols: 6, rows: 2},
+    {text: 'Liste Deck', cols: 5, rows: 2},
     {text: 'Carte', cols: 5, rows: 6},
     {text: 'Resultat', cols: 4, rows: 9},
     {text: 'Deck', cols: 7, rows: 6},
