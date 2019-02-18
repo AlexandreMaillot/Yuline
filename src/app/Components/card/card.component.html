@@ -1,3 +1,4 @@
-<p>
-  card works!
-</p>
+<div *ngFor="let card of c">
+  <img  mat-card-md-image  alt="{{card?.id}} + {{card?.name}}" src="https://storage.googleapis.com/ygoprodeck.com/pics/{{card?.id}}.jpg"/>
+  <!--<img mat-card-md-image  src="https://storage.googleapis.com/ygoprodeck.com/pics/3366982.jpg"/>-->
+</div>

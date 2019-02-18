@@ -26,6 +26,8 @@ import { FourOfFourComponent } from './Components/four-of-four/four-of-four.comp
 import { DeckManageComponent } from './Components/deck-manage/deck-manage.component';
 import { NewsComponent } from './Components/news/news.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {CardService} from "./Service/card.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -58,9 +60,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

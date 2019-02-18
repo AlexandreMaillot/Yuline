@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
+import {CardService} from '../../Service/card.service';
+import {Card} from '../../Class/card';
 
 @Component({
   selector: 'app-card',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  @Input() c: Card[];
 
-  constructor() { }
+  constructor(private CardService: CardService) {
+  }
 
   ngOnInit() {
   }
 
+  // ngOnChanges(changes: SimpleChanges): void {
+  //     console.log(changes);
+  //
+  // }
 }

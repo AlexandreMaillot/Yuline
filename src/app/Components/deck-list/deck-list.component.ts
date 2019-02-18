@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-deck-list',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deck-list.component.css']
 })
 export class DeckListComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

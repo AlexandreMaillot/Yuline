@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {CardService} from '../../Service/card.service';
+import {Card} from '../../Class/card';
 
 @Component({
   selector: 'app-card-list',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-
-  constructor() { }
-
+  cardsList: Array<Card>;
+  constructor(private cardService: CardService) { }
+  @Output() idCardModel = new EventEmitter<number>();
+  @Output()
+  sortie:EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
+    this.cardsList =  new Array<Card>();
+    this.cardService.getAllCards().then( Cards => {
+      // @ts-ignore
+      this.cardsList.push(Cards);
+    });
+    console.log(this.cardsList);
+  }
+  affImg(idCard: string) {
+    this.cardService.getCardById(idCard).then( card => {
+      // @ts-ignore
+      this.sortie.emit(card);
+      // console.log(carte);
+    });
+
+
   }
 
 }

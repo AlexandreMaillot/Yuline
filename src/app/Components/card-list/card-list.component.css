@@ -1,0 +1,28 @@
+mat-list {
+
+}
+
+.t {
+
+}
+
+.infoY {
+
+}
+
+.imgY {
+
+}
+
+.listcarte {
+  border: 2px solid fuchsia;
+
+
+}
+.cardDescript:hover{
+  background-color: gainsboro;
+}
+img {
+  width: 65px;
+  height: 75px;
+}

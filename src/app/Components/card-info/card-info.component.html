@@ -1,3 +1,7 @@
-<p>
-  card-info works!
-</p>
+<div *ngFor="let card of c">
+  <h1>{{card.name}}</h1>
+    &#8902;
+  <p>{{card.type}}/{{card.attribute}} </p>
+  <p>{{card.desc}}</p>
+</div>
+
