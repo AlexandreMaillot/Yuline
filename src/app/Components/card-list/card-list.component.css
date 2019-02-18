@@ -1,27 +1,26 @@
-mat-list {
-
+.list{
+  height: 40%
 }
 
-.t {
-
+#image{
+  display: inline-block;
+  position: absolute;
+  padding-top: 5px
 }
 
-.infoY {
-
+#nom{
+  display: inline-block;
+  margin-left: 80px;
+  width: 65%;
+  color: azure
 }
 
-.imgY {
 
-}
-
-.listcarte {
-  border: 2px solid fuchsia;
-
-
-}
 .cardDescript:hover{
   background-color: gainsboro;
+  word-break: break-word;
 }
+
 img {
   width: 65px;
   height: 75px;

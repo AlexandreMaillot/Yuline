@@ -14,9 +14,14 @@
 .sidenav {
   width: 200px;
   background-color: #403f3d;
+  color: azure;
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
+}
+
+.navbar{
+  color:azure;
 }

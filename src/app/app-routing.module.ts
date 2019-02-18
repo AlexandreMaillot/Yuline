@@ -9,6 +9,7 @@ import {DeckManageComponent} from './Components/deck-manage/deck-manage.componen
 import {NewsComponent} from './Components/news/news.component';
 
 const routes: Routes = [
+  
   {path: 'login', pathMatch: 'full', component: ConnectionComponent},
   {path: 'registration', pathMatch: 'full', component: RegistrationComponent},
   {
@@ -18,8 +19,10 @@ const routes: Routes = [
       {path: 'profile', pathMatch: 'full', component: ProfileComponent},
     ]
   },
+  {path: '',pathMatch: 'full', redirectTo: '/login'},
   {path: 'not-found', component: FourOfFourComponent},
   {path: '**', redirectTo: '/not-found'}
+  
 ];
 
 @NgModule({
