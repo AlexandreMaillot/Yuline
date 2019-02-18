@@ -19,10 +19,19 @@ mat-list {
 
 
 }
-.cardDescript:hover{
+.cardLineDescript:hover{
   background-color: gainsboro;
 }
 img {
   width: 65px;
   height: 75px;
+}
+.cardLineDescript{
+  word-break: break-word;
+}
+.cardList{
+  height: 40%
+}
+.imgIcoCard{
+  display: inline-block;position: absolute;padding-top: 5px
 }

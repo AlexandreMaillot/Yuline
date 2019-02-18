@@ -1,8 +1,8 @@
 <div style="">
-  <mat-list style="height: 40%"  *ngFor="let card of cardsList[0]">
-    <mat-list-item class="cardDescript" style="word-break: break-word;" (mouseenter)="affImg(card?.id)" >
+  <mat-list style=""  *ngFor="let card of cardsList[0]">
+    <mat-list-item class="cardLineDescript" style="" (mouseenter)="affImg(card?.id)" >
       <div>
-        <img mat-card-md-image style="display: inline-block;position: absolute;padding-top: 5px" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.id}}.jpg"/>
+        <img class="imgIcoCard" mat-card-md-image style="" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.id}}.jpg"/>
         <h4 mat-line style="display: inline-block;margin-left: 80px;width: 65%;color: azure">{{card?.name}}</h4>
         <p mat-line></p>
       </div>
