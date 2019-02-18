@@ -3,3 +3,11 @@
     <input matInput placeholder="Nom">
   </mat-form-field>
   <button mat-raised-button>Créer</button>
+  <h4>Sélection deck</h4>
+  <mat-form-field>
+    <mat-select placeholder="Deck Select">
+      <mat-option *ngFor="let Deck of Decks" [value]="Deck._name">
+        {{Deck._name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

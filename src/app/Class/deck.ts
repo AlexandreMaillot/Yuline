@@ -2,8 +2,8 @@ import {Card} from "./card";
 import {Player} from "./player";
 
 export class Deck {
-  private _idDeck: number;
-  private _name: string;
+   _idDeck: number;
+   _name: string;
   private _banList: string;
   private _mainDeck: Card[];
   private _sideDeck: Card[];
