@@ -16,10 +16,10 @@ export class CardListComponent implements OnInit {
   sortie: EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
     this.cardsList =  new Array<Card>();
-    this.cardService.getAllCards().then( Cards => {
+    //this.cardService.getAllCards().then( Cards => {
       // @ts-ignore
-      this.cardsList.push(Cards);
-    });
+      //this.cardsList.push(Cards);
+    //});
     console.log(this.cardsList);
   }
   affCard(idCard: string) {

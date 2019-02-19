@@ -1,13 +1,25 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Nom">
-  </mat-form-field>
-  <button mat-raised-button>Créer</button>
-  <h4>Sélection deck</h4>
-  <mat-form-field>
-    <mat-select placeholder="Deck Select">
-      <mat-option *ngFor="let Deck of Decks" [value]="Deck._name">
-        {{Deck._name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<br><br><br>
+<table> 
+  <td>
+    <mat-form-field>
+      <mat-select placeholder="Deck Select">
+        <mat-option *ngFor="let Deck of deckList" [value]="Deck._idDeck">
+          {{Deck._name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </td>
+  <td>
+      <button mat-raised-button>Sélectionner</button>
+  </td>
+</table>
+<table>
+  <td>
+    <mat-form-field class="example-full-width">
+      <input name = "nomDeck" [(ngModel)]="nomDeck" matInput placeholder="Nom">
+    </mat-form-field>
+  </td>
+  <td>
+      <button (click) = "createDeck()" mat-raised-button>Créer</button>
+  </td>
+</table>

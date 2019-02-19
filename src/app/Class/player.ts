@@ -8,11 +8,12 @@ export class Player {
   private _deckList: Array<Deck>;
 
 
-  constructor(idPlayer: number, pseudo: string, email: string, password: string) {
+  constructor(idPlayer: number, pseudo: string, email: string, password: string, deckList:Array<Deck>) {
     this._idPlayer = idPlayer;
     this._pseudo = pseudo;
     this._email = email;
     this._password = password;
+    this._deckList = deckList;
   }
 
 

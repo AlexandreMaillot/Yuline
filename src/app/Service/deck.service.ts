@@ -44,6 +44,7 @@ export class DeckService {
     const extraDeck = new Array<Card>();
     this.deck = new Deck(nom, '', mainDeck, sideDeck, extraDeck, player);
     player.deckList.push(this.deck);
+    console.log(nom);
   }
 
   deleteDeck(player: Player, deck: Deck) {
@@ -51,8 +52,8 @@ export class DeckService {
     player.deckList.splice(index, 1);
   }
 
-  getDecks() {
-    return this.listDeck;
+  getDecks(player: Player) {
+    return player.deckList;
   }
 
   constructor(private cardService: CardService) {

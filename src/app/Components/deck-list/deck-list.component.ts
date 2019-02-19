@@ -9,14 +9,22 @@ import {Player} from '../../Class/player';
   styleUrls: ['./deck-list.component.css']
 })
 export class DeckListComponent implements OnInit {
-  deckList: Deck[];
+  deckList: Array<Deck>;
   player: Player;
+  nomDeck: string;
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
-    this.player = new Player(1, 'PlayerTest', '', '123');
+    this.deckList = [];
+    this.player = new Player(1, 'PlayerTest', '', '123',this.deckList);
     this.deckService.createDeck('DeckTest', this.player);
-    this.deckList = this.deckService.getDecks();
+    this.deckList = this.deckService.getDecks(this.player);
+  }
+
+  createDeck(){
+    this.deckService.createDeck(this.nomDeck, this.player);
+    this.deckList = this.deckService.getDecks(this.player);
+    console.log("decklist : "+ this.deckList);
   }
 
 }

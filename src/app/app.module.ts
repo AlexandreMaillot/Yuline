@@ -9,7 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import { ConnectionComponent } from './Components/connection/connection.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
@@ -28,6 +28,7 @@ import { NewsComponent } from './Components/news/news.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {CardService} from "./Service/card.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [
   ],

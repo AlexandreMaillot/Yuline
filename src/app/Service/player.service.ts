@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Player} from '../Class/player';
+import {Deck} from '../Class/deck';
+import {Card} from '../Class/card';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ export class PlayerService {
   constructor() { }
 
   addPlayer(idPlayer: number, pseudo: string, email: string, password: string){
-    this.player = new Player(idPlayer, pseudo, email, password);
+    const deck = new Array<Deck>();
+
+    this.player = new Player(idPlayer, pseudo, email, password, deck);
   }
 }
