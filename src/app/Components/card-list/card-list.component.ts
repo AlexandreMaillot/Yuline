@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {CardService} from '../../Service/card.service';
 import {Card} from '../../Class/card';
 import {DeckService} from '../../Service/deck.service';
@@ -6,7 +6,8 @@ import {DeckService} from '../../Service/deck.service';
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css']
+  styleUrls: ['./card-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardListComponent implements OnInit {
   cardsList: Array<Card>;

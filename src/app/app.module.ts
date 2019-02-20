@@ -29,7 +29,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {CardService} from "./Service/card.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
-import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
     MatGridListModule,
     HttpClientModule,
     MatSelectModule,
-    ScrollDispatchModule
+    ScrollingModule
   ],
   providers: [
   ],
