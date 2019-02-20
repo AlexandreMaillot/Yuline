@@ -23,7 +23,7 @@ export class CardService {
   getAllCards() {
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
-      const req = this.http.get<Card[][]>('https://db.ygoprodeck.com/api/allcards.php')
+      const req = this.http.get<Card[][]>('http://localhost:54939/api/Cards')
         .subscribe(
           res => {
             //console.log(res);
@@ -45,7 +45,7 @@ export class CardService {
   getCardById(id: string){
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
-      const SingleCard = this.http.get<Card>('https://db.ygoprodeck.com/api/cardinfo.php?name=' + id)
+      const SingleCard = this.http.get<Card>('http://localhost:54939/api/Cards/'+ id)
         .subscribe(
           res => {
 

@@ -1,11 +1,30 @@
-<mat-grid-list cols="10" rowHeight="60px" gutterSize="5" style="width: 510px;
-    margin-left: 2.5px;">
+<!--
+<div
+cdkDropList
+cdkDropListOrientation="horizontal"
+#doneList="cdkDropList"
+[cdkDropListData]="done"
+[cdkDropListConnectedTo]="[todoList]"
+class="example-list"
+(cdkDropListDropped)="drop($event)">
+<mat-grid-list cols="10" rowHeight="60px" gutterSize="5" style="width: 510px; margin-left: 2.5px; " >
   <mat-grid-tile
     *ngFor="let tile2 of tiles"
     [colspan]="tile2.cols"
     [rowspan]="tile2.rows"
     [style.background]="tile2.color"
+    cdkDrag
   >
-    <img style="width: 60px; height: 80px" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg"/>
+    <img style="width: 60px; height: 80px" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg" />
   </mat-grid-tile>
 </mat-grid-list>
+</div>
+-->
+
+<div cdkDropList cdkDropListOrientation="horizontal" #deck="cdkDropList" [cdkDropListData]="deck"
+  [cdkDropListConnectedTo]="cardList" class="example-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let tile2 of tiles">
+    <img style="width: 60px; height: 80px"
+      src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg" cdkDrag>
+  </div>
+</div>

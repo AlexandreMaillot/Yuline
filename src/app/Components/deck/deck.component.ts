@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 // export interface Tile {
 //   id: string;
 //   cols: number;
@@ -94,6 +95,17 @@ export class DeckComponent implements OnInit {
      this.tiles.push(this.tCard);
   }
   ngOnInit() {
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 }
