@@ -23,12 +23,12 @@ export class CardService {
   getAllCards() {
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
-      const req = this.http.get<Card[][]>('https://db.ygoprodeck.com/api/allcards.php')
+      const req = this.http.get<Card[]>('http://localhost:54939/api/Cards')
         .subscribe(
           res => {
-            //console.log(res);
+            // console.log(res);
             if (res != null) {
-              res[0].forEach(card => {
+              res.forEach(card => {
                 this.cards.push(card);
               });
               resolve(this.cards);
@@ -45,15 +45,39 @@ export class CardService {
   getCardById(id: string){
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
-      const SingleCard = this.http.get<Card>('https://db.ygoprodeck.com/api/cardinfo.php?name=' + id)
+      const SingleCard = this.http.get<Card>('http://localhost:54939/api/Cards/' + id)
         .subscribe(
           res => {
 
             if (res != null) {
               this.card = res;
-              console.log(this.card);
+
               // this.cardSubject = this.card.;
               resolve(this.card);
+            }
+
+          },
+          err => {
+            console.log('Error occured');
+            reject(err);
+          }
+        );
+    });
+  }
+  addCardDb(card: Card){
+    // console.log('Ma carte');
+     console.log(card);
+    return new Promise((resolve, reject) => {
+      // tslint:disable-next-line:max-line-length
+      const SingleCard = this.http.post<Card>('http://localhost:54939/api/Cards', card)
+        .subscribe(
+          res => {
+
+            if (res != null) {
+              this.card = res;
+              console.log('Carte Ajouté');
+              // this.cardSubject = this.card.;
+              resolve('ok');
             }
 
           },

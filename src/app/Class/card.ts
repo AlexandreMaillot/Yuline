@@ -12,7 +12,7 @@ export class Card {
    linkval : number;// The Link Value of the card if it's of type "Link Monster".
    linkmarkers : number;//The Link Markers of the card if it's of type "Link Monster".
    archetype : string;// The Archetype that the card belongs to. We take feedback on Archetypes here.
-   setcode : number;//Every Card Set this card belongs to.
+   setcode : string;//Every Card Set this card belongs to.
    ban_tcg : string;// status of the card on the TCG Ban List.
    ban_ocg : string;//The status of the card on the OCG Ban List.
    ban_goat : string;//The status of the card on the GOAT Format Ban List.

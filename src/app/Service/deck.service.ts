@@ -3,6 +3,7 @@ import {Deck} from '../Class/deck';
 import {CardService} from './card.service';
 import {Card} from '../Class/card';
 import {Player} from '../Class/player';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +57,6 @@ export class DeckService {
     return player.deckList;
   }
 
-  constructor(private cardService: CardService) {
+  constructor(private cardService: CardService, private http: HttpClient) {
   }
 }
