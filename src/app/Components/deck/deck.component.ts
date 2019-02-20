@@ -91,8 +91,8 @@ export class DeckComponent implements OnInit {
   constructor() {
   }
   addTile(idCard: string){
-     this.tCard = {id: idCard, cols: 1, rows: 1};
-     this.tiles.push(this.tCard);
+     // this.tCard = {id: idCard, cols: 1, rows: 1};
+     // this.tiles.push(this.tCard);
   }
   ngOnInit() {
   }

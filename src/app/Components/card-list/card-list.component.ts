@@ -19,19 +19,24 @@ export class CardListComponent implements OnInit {
   sortie: EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
     this.cardsList =  new Array<Card>();
-
-    //this.cardService.getAllCards().then( Cards => {
-      // @ts-ignore
-      //this.cardsList.push(Cards);
-    //});
+    this.cardService.getAllCards().then( Cards => {
+    //   @ts-ignore
+       this.cardsList.push(Cards);
+      // console.log(Cards);
+      // this.cardsList = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+    });
+    // console.log(this.cardsList);
   }
   affCard(idCard: string) {
+
     this.cardService.getCardById(idCard).then( card => {
+      console.log(card);
       // @ts-ignore
       this.sortie.emit(card);
       // console.log(carte);
     });
   }
+
   addCard(idCard: string) {
       // this.deckService.addCardDeck(idCard);
   }

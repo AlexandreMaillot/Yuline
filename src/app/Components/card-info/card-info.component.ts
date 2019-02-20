@@ -7,7 +7,7 @@ import {Card} from "../../Class/card";
   styleUrls: ['./card-info.component.css']
 })
 export class CardInfoComponent implements OnInit {
-  @Input() c: Card[];
+  @Input() c: Card;
   constructor() { }
 
   ngOnInit() {

@@ -11,8 +11,8 @@ class="example-list"
 <mat-list class="list" *ngFor="let card of cardsList[0]">
     <mat-list-item class="cardDescript"  (mouseenter)="affCard(card?.id)" >
       <div>
-        <img mat-card-md-image id="image"  src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.id}}.jpg"/>
-        <h4 mat-line id="nom">{{card?.name}}</h4>
+        <img mat-card-md-image id="image"  src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.Id}}.jpg"/>
+        <h4 mat-line id="nom">{{card?.Name}}</h4>
         <p mat-line></p>
       </div>
     </mat-list-item>

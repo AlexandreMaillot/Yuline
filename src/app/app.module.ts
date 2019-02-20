@@ -30,6 +30,7 @@ import {CardService} from "./Service/card.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -65,8 +66,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatGridListModule,
     HttpClientModule,
     MatSelectModule,
-    DragDropModule
-    
+    DragDropModule,
+    ScrollDispatchModule
   ],
   providers: [
   ],
