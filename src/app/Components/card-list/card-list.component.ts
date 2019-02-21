@@ -1,19 +1,22 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {CardService} from '../../Service/card.service';
 import {Card} from '../../Class/card';
 import {DeckService} from '../../Service/deck.service';
 
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {ChangeDetectionStrategy} from '@angular/core';
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {CollectionViewer} from "@angular/cdk/collections";
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css']
+  styleUrls: ['./card-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CardListComponent implements OnInit {
-  cardsList: Array<Card>;
+  cardsList: Card[];
+  items = Array.from({length: 10000}).map((_, i) => `Item #${i}`);
   constructor(private cardService: CardService, private deckService: DeckService) { }
   @Output() idCardModel = new EventEmitter<number>();
   @Output()
@@ -41,6 +44,7 @@ export class CardListComponent implements OnInit {
       // this.deckService.addCardDeck(idCard);
   }
 
+<<<<<<< HEAD
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -53,4 +57,6 @@ export class CardListComponent implements OnInit {
     console.log('test');
   }
 
+=======
+>>>>>>> b466d7b06534ab2ef72f3dbeee7106ea27f1c8cb
 }

@@ -26,11 +26,12 @@ import { FourOfFourComponent } from './Components/four-of-four/four-of-four.comp
 import { DeckManageComponent } from './Components/deck-manage/deck-manage.component';
 import { NewsComponent } from './Components/news/news.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {CardService} from "./Service/card.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+import { ScrollingModule, ScrollDispatcher } from '@angular/cdk/scrolling';
+import {ScrollDispatchModule,CdkFixedSizeVirtualScroll,CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
+
 
 
 @NgModule({
@@ -67,8 +68,7 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
     MatGridListModule,
     HttpClientModule,
     MatSelectModule,
-    DragDropModule,
-    ScrollDispatchModule
+    ScrollingModule,
   ],
   providers: [
   ],
