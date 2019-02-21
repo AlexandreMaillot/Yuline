@@ -1,7 +1,16 @@
-<div cdkDropList cdkDropListOrientation="horizontal" #deck="cdkDropList" [cdkDropListData]="deck"
-  [cdkDropListConnectedTo]="[cardList]" class="example-list" (cdkDropListDropped)="drop($event)">
+<!--<div cdkDropList [cdkDropListData]="tiles" class="example-list" (cdkDropListDropped)="drop($event)">
   <div *ngFor="let tile2 of tiles">
     <img style="width: 60px; height: 80px"
-      src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg" cdkDrag>
+      src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.Id}}.jpg" cdkDrag>
   </div>
-</div>
+</div>-->
+
+<mat-grid-list cdkDropList [cdkDropListData]="tiles" class="example-list" (cdkDropListDropped)="drop($event)" cols="10"
+  rowHeight="60px" gutterSize="5" style="width: 510px;
+    margin-left: 2.5px;">
+  <mat-grid-tile *ngFor="let tile2 of tiles" [colspan]="tile2.cols" [rowspan]="tile2.rows"
+    [style.background]="tile2.color">
+    <img style="width: 60px; height: 80px"
+      src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg" cdkDrag>
+  </mat-grid-tile>
+</mat-grid-list>

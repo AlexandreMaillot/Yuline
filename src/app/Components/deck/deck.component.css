@@ -1,12 +1,13 @@
 .example-list {
-    width: 1000px;
+  margin-top: 50px;
+    width: 750px;
     max-width: 100%;
     border: solid 1px #ccc;
-    min-height: 60px;
+    min-height: 425px;
     display: flex;
     flex-direction: row;
     background: white;
-    border-radius: 4px;
+    border-radius: 20px;
     overflow: hidden;
   }
   

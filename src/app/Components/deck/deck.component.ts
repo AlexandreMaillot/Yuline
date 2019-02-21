@@ -25,78 +25,30 @@ export class DeckComponent implements OnInit {
   //
   // ];
   @Input()
-  tiles: Tile[] = [
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '27551', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-    {id: '41777', cols: 1, rows: 1},
-  ];
+  tiles: Tile[] = [];
 
   constructor() {
   }
   addTile(idCard: string){
-     // this.tCard = {id: idCard, cols: 1, rows: 1};
-     // this.tiles.push(this.tCard);
+      this.tCard = {id: idCard, cols: 1, rows: 1};
+      this.tiles.push(this.tCard);
   }
   ngOnInit() {
   }
 
-
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
+    //@ts-ignore
+    console.log(event.container.data[0].Id);
+    //@ts-ignore
+    this.addTile(event.container.data[0].Id);
+  }
 
 }
