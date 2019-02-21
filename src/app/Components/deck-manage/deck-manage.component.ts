@@ -27,8 +27,6 @@ export class DeckManageComponent implements OnInit {
   constructor() { }
   selection(card: Card) {
     this.idModelCard = card;
-    console.log('manage');
-    console.log(this.idModelCard);
   }
   ngOnInit() {
   }

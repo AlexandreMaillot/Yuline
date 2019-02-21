@@ -4,6 +4,7 @@ import {Card} from '../../Class/card';
 import {DeckService} from '../../Service/deck.service';
 
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'app-card-list',
@@ -18,10 +19,10 @@ export class CardListComponent implements OnInit {
   @Output()
   sortie: EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
-    this.cardsList =  new Array<Card>();
+    //this.cardsList =  new Array<Card>();
     this.cardService.getAllCards().then( Cards => {
     //   @ts-ignore
-       this.cardsList.push(Cards);
+       this.cardsList =Cards ;
       // console.log(Cards);
       // this.cardsList = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
     });
@@ -30,7 +31,6 @@ export class CardListComponent implements OnInit {
   affCard(idCard: string) {
 
     this.cardService.getCardById(idCard).then( card => {
-      console.log(card);
       // @ts-ignore
       this.sortie.emit(card);
       // console.log(carte);
@@ -50,6 +50,7 @@ export class CardListComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    console.log('test');
   }
 
 }

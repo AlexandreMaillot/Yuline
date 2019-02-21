@@ -1,6 +1,16 @@
-<div cdkDropList [cdkDropListData]="cardsList[0]" class="example-list" (cdkDropListDropped)="drop($event)">
-  <div *ngFor="let card of cardsList[0]">
-      <img mat-card-md-image src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.Id}}.jpg" cdkDrag>
+<div *ngFor="let card of cardsList" cdkDropList [cdkDropListData]="cardsList" class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="listCard" (mouseenter) = "affCard(card?.Id)">
+      <img mat-card-md-image id="{{card?.Id}}" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.Id}}.jpg" cdkDrag>
       <span mat-line id="nom">{{card?.Name}}</span>
   </div>
 </div>
+
+<!--
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <div *cdkVirtualFor="let card of cardsList" cdkDropList [cdkDropListData]="cardsList" class="example-list" (cdkDropListDropped)="drop($event)">
+        {{card.Id }}
+        <img mat-card-md-image id="{{card?.Id}}" src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{card?.Id}}.jpg" cdkDrag>
+        <span mat-line id="nom">{{card?.Name}}</span>
+  </div>
+</cdk-virtual-scroll-viewport>
+-->

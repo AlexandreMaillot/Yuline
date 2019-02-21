@@ -32,6 +32,7 @@ export class DeckComponent implements OnInit {
   addTile(idCard: string){
       this.tCard = {id: idCard, cols: 1, rows: 1};
       this.tiles.push(this.tCard);
+      
   }
   ngOnInit() {
   }
@@ -46,9 +47,12 @@ export class DeckComponent implements OnInit {
                         event.currentIndex);
     }
     //@ts-ignore
-    console.log(event.container.data[0].Id);
+    console.log(event.item.element.nativeElement.id);
     //@ts-ignore
-    this.addTile(event.container.data[0].Id);
+
+    
+      this.addTile(event.item.element.nativeElement.id);
+    
   }
 
 }
