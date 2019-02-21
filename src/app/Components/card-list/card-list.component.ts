@@ -3,24 +3,35 @@ import {CardService} from '../../Service/card.service';
 import {Card} from '../../Class/card';
 import {DeckService} from '../../Service/deck.service';
 
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {CollectionViewer} from "@angular/cdk/collections";
+
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class CardListComponent implements OnInit {
-  cardsList: Array<Card>;
+  cardsList: Card[];
+  items = Array.from({length: 10000}).map((_, i) => `Item #${i}`);
   constructor(private cardService: CardService, private deckService: DeckService) { }
   @Output() idCardModel = new EventEmitter<number>();
   @Output()
   sortie: EventEmitter<Card> = new EventEmitter<Card>();
   ngOnInit() {
-    this.cardsList =  new Array<Card>();
+    // this.cardsList =  new Array<Card>();
     this.cardService.getAllCards().then( Cards => {
     //   @ts-ignore
-       this.cardsList.push(Cards);
-      // console.log(Cards);
+       this.cardsList = Cards;
+       console.log(this.cardsList);
+      // @ts-ignore
+      this.items = this.cardsList;
+      console.log(this.items);
+
+
       // this.cardsList = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
     });
     // console.log(this.cardsList);
@@ -38,4 +49,5 @@ export class CardListComponent implements OnInit {
   addCard(idCard: string) {
       // this.deckService.addCardDeck(idCard);
   }
+
 }

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 // export interface Tile {
 //   id: string;
 //   cols: number;
@@ -95,5 +96,7 @@ export class DeckComponent implements OnInit {
   }
   ngOnInit() {
   }
+
+
 
 }
