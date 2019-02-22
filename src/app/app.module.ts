@@ -69,6 +69,7 @@ import {ScrollDispatchModule,CdkFixedSizeVirtualScroll,CdkVirtualScrollViewport}
     HttpClientModule,
     MatSelectModule,
     ScrollingModule,
+    DragDropModule
   ],
   providers: [
   ],

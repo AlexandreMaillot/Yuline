@@ -34,24 +34,34 @@ export class DeckComponent implements OnInit {
       this.tiles.push(this.tCard);
       
   }
+
+
+deleteTile(tile : Tile) {
+  const index = this.tiles.indexOf(tile);
+  this.tiles.splice(index, 1);
+}
+
+  getIndex(){
+
+  }
+
   ngOnInit() {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
+    if (event.previousContainer != event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-    }
+      this.addTile(event.item.element.nativeElement.id);
+
+    } 
+
+
     //@ts-ignore
     console.log(event.item.element.nativeElement.id);
     //@ts-ignore
 
     
-      this.addTile(event.item.element.nativeElement.id);
+      
     
   }
 
