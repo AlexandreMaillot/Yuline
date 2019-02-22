@@ -2,18 +2,15 @@ import {Deck} from './deck';
 
 export class Player {
   private _idPlayer: number;
-  private _pseudo: string;
-  private _email: string;
-  private _password: string;
-  private _deckList: Array<Deck>;
+  private Pseudo: string;
+  private Email: string;
+  private Password: string;
+  private DeckList: Array<Deck>;
 
 
-  constructor(idPlayer: number, pseudo: string, email: string, password: string, deckList:Array<Deck>) {
-    this._idPlayer = idPlayer;
-    this._pseudo = pseudo;
-    this._email = email;
-    this._password = password;
-    this._deckList = deckList;
+  constructor(pseudo: string, password: string) {
+    this.Pseudo = pseudo;
+    this.Password = password;
   }
 
 
@@ -26,34 +23,34 @@ export class Player {
   }
 
   get pseudo(): string {
-    return this._pseudo;
+    return this.Pseudo;
   }
 
   set pseudo(value: string) {
-    this._pseudo = value;
+    this.Pseudo = value;
   }
 
   get email(): string {
-    return this._email;
+    return this.Email;
   }
 
   set email(value: string) {
-    this._email = value;
+    this.Email = value;
   }
 
   get password(): string {
-    return this._password;
+    return this.Password;
   }
 
   set password(value: string) {
-    this._password = value;
+    this.Password = value;
   }
 
   get deckList(): Array<Deck> {
-    return this._deckList;
+    return this.DeckList;
   }
 
   set deckList(value: Array<Deck>) {
-    this._deckList = value;
+    this.DeckList = value;
   }
 }

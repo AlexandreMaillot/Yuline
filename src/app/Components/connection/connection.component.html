@@ -1,5 +1,5 @@
-<mat-card class="example-card">
-  <mat-card-header>
+<mat-card style="display: inline-block"class="example-card">
+  <mat-card-header style="text-align: center;display: contents;">
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
   <mat-card-content>
@@ -8,7 +8,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            <input matInput placeholder="Username" [(ngModel)]="pseudo" name="username" required>
             </mat-form-field>
           </td>
         </tr>
@@ -20,9 +20,7 @@
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Login</button>
+  <mat-card-actions style="text-align: center;">
+    <button mat-raised-button  (click)="login()"  routerLink="http://localhost:4200/home"  color="primary">Login</button>
   </mat-card-actions>
 </mat-card>
-
-<button (click) = "EnregistreCard()" mat-raised-button>Ajoute card deck</button>

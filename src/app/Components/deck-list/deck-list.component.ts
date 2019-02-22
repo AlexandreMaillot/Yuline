@@ -16,7 +16,9 @@ export class DeckListComponent implements OnInit {
 
   ngOnInit() {
     this.deckList = [];
-    this.player = new Player(1, 'PlayerTest', '', '123',this.deckList);
+    this.player = new Player('1', '123');
+    this.player.deckList = this.deckList;
+    this.player.email = '';
     this.deckService.createDeck('DeckTest', this.player);
     this.deckList = this.deckService.getDecks(this.player);
   }

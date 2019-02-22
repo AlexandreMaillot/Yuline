@@ -11,7 +11,6 @@ import {CollectionViewer} from "@angular/cdk/collections";
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CardListComponent implements OnInit {
@@ -44,7 +43,7 @@ export class CardListComponent implements OnInit {
       // this.deckService.addCardDeck(idCard);
   }
 
-<<<<<<< HEAD
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -56,7 +55,4 @@ export class CardListComponent implements OnInit {
     }
     console.log('test');
   }
-
-=======
->>>>>>> b466d7b06534ab2ef72f3dbeee7106ea27f1c8cb
 }

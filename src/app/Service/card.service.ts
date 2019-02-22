@@ -26,7 +26,7 @@ export class CardService {
       const req = this.http.get<Card[]>('http://localhost:54939/api/Cards')
         .subscribe(
           res => {
-            // console.log(res);
+             console.log(res);
             if (res != null) {
               res.forEach(card => {
                 this.cards.push(card);

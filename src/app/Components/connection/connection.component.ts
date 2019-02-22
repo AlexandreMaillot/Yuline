@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardService} from "../../Service/card.service";
 import {Card} from "../../Class/card";
 import {PlayerService} from "../../Service/player.service";
 import {take} from "rxjs/operators";
 import {interval} from "rxjs";
+import {Player} from "../../Class/player";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connection',
@@ -16,33 +18,21 @@ export class ConnectionComponent implements OnInit {
   id: number = 1;
   id2: number;
   card: Card;
-
+  @Input()
+  pseudo: string;
+  @Input()
+  password: string;
+  player: Player;
   constructor(private cardService: CardService, private playerService: PlayerService) {
   }
 
   ngOnInit() {
   }
-
+login(){
+  this.player = new Player(this.pseudo,this.password);
+    this.playerService.connection(this.player).then( p => console.log(p));
+}
   EnregistreCard() {
-
-    // //
-    //
-    // // @ts-ignore
-    //   this.listeCarteS[0].forEach.delay(500)( cardS => {
-    //    console.log(cardS);
-    // this.cardService.getCardById(cardS.id).then.(  completeCard => {
-    //   console.log(completeCard);
-    // @ts-ignore
-    // this.cardService.addCardDb(completeCard);
-    // }
-
-//@ts-ignore
-    // for (let _i = 1; _i < 10; _i++) {
-    //   inter(() => {
-    //
-    //       this.playerService.getPlayerById(_i).then(p => console.log(p));
-    //
-    //   }, 5000);
     this.listeCarteS = new Array<Card>();
      console.log(this.listeCarteS);
     this.cardService.getAllCards().then(Cards => {
@@ -51,8 +41,6 @@ export class ConnectionComponent implements OnInit {
     });
     const numbers = interval(2000);
     const takeFourNumbers = numbers.pipe(take(520));
-    // const takeFourNumbers = numbers.pipe(take((this.listeCarteS.length / 15));
-// console.log(this.listeCarteS[0].length / 15);
     takeFourNumbers.subscribe(x => {
 
         for (let _i = this.id; _i <= this.id + 19; _i++) {
@@ -61,9 +49,6 @@ export class ConnectionComponent implements OnInit {
           this.cardService.getCardById(this.card.id).then(completeCard => {
             // @ts-ignore
              this.cardService.addCardDb(completeCard[0]).then('Carte Ajouté');
-            //  console.log(completeCard);
-             // console.log(this.id2);
-
           });
           this.id2 = _i;
         }
@@ -72,8 +57,6 @@ export class ConnectionComponent implements OnInit {
 
       }
     )
-    // )
-    // });
 
 
   }

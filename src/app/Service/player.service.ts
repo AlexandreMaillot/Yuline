@@ -16,7 +16,8 @@ export class PlayerService {
 
   addPlayer(idPlayer: number, pseudo: string, email: string, password: string) {
     const deck = new Array<Deck>();
-    this.player = new Player(idPlayer, pseudo, email, password, deck);
+    this.player = new Player(pseudo, password);
+    this.player.email = email;
     return new Promise((resolve, reject) => {
       // tslint:disable-next-line:max-line-length
       const addPlayer = this.http.post<Player>('http://localhost:54939/api/Players', this.player)
@@ -50,6 +51,21 @@ export class PlayerService {
           },
           err => {
             console.log('Error occured');
+            reject(err);
+          }
+        );
+    });
+  }
+  connection(p: Player){
+    return new Promise((resolve, reject) => {
+      // tslint:disable-next-line:max-line-length
+      const c = this.http.post<Player>('http://localhost:54939/api/login', p)
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log('Connexion refusée');
             reject(err);
           }
         );
