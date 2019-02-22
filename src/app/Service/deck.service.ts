@@ -39,8 +39,7 @@ export class DeckService {
     deck.sideDeck.splice(index, 1);
   }
 
-  createDeck(nom: string, player: Player) {
-    const mainDeck = new Array<Card>();
+  createDeck(nom: string, player: Player,mainDeck:Card[]) {
     const sideDeck = new Array<Card>();
     const extraDeck = new Array<Card>();
     this.deck = new Deck(nom, '', mainDeck, sideDeck, extraDeck, player);
