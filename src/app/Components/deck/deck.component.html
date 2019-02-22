@@ -9,8 +9,8 @@
   rowHeight="60px" gutterSize="5" style="width: 510px;
     margin-left: 2.5px;">
   <mat-grid-tile *ngFor="let tile2 of tiles" [colspan]="tile2.cols" [rowspan]="tile2.rows"
-    [style.background]="tile2.color" cdkDrag>
-    <img style="width: 60px; height: 80px"
+    [style.background]="tile2.color" (mouseenter)="affCard(tile2?.id)" cdkDrag>
+    <img  (dblclick)="deleteTile(tile2)"  style="width: 60px; height: 80px"
       src="https://storage.googleapis.com/ygoprodeck.com/pics_small/{{tile2?.id}}.jpg">
   </mat-grid-tile>
 </mat-grid-list>

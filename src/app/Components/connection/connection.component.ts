@@ -31,6 +31,7 @@ export class ConnectionComponent implements OnInit {
 login(){
   this.player = new Player(this.pseudo,this.password);
     this.playerService.connection(this.player).then( p => console.log(p));
+
 }
   EnregistreCard() {
     this.listeCarteS = new Array<Card>();

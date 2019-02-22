@@ -14,6 +14,20 @@ export class DeckService {
 
   addCardMainDeck(card: Card, deck: Deck) {
     deck.mainDeck.push(card);
+    return new Promise((resolve, reject) => {
+      // tslint:disable-next-line:max-line-length
+      const addDeck = this.http.post('http://localhost:54939/api/mainDeck', this.deck)
+        .subscribe(
+          res => {
+            if (res != null) {
+              resolve(res);
+            }
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
   }
 
   addCardExtraDeck(card: Card, deck: Deck) {
@@ -39,13 +53,23 @@ export class DeckService {
     deck.sideDeck.splice(index, 1);
   }
 
-  createDeck(nom: string, player: Player) {
-    const mainDeck = new Array<Card>();
-    const sideDeck = new Array<Card>();
-    const extraDeck = new Array<Card>();
+  createDeck(nom: string, player: Player,mainDeck:Card[],sideDeck: Card[], extraDeck:Card[]) {
     this.deck = new Deck(nom, '', mainDeck, sideDeck, extraDeck, player);
     player.deckList.push(this.deck);
-    console.log(nom);
+    return new Promise((resolve, reject) => {
+      // tslint:disable-next-line:max-line-length
+      const addDeck = this.http.post<Deck>('http://localhost:54939/api/Deck', this.deck)
+        .subscribe(
+          res => {
+            if (res != null) {
+              resolve(res);
+            }
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
   }
 
   deleteDeck(player: Player, deck: Deck) {

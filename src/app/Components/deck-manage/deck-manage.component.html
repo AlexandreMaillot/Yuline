@@ -13,8 +13,15 @@
       </div>
 
         <app-filters *ngIf='tile.text == "Filter"'></app-filters>
-        <app-deck *ngIf='tile.text == "Deck"'></app-deck>
-        <app-deck-list *ngIf='tile.text == "Liste Deck"'></app-deck-list>
+        <app-deck *ngIf='tile.text == "Deck"'
+                  (sortieDeck)="selection($event)"
+                  (mainDeckChange)="mainDeckChange($event)"
+                  (extraDeckChange)="extraDeckChange($event)"
+                  (sideDeckChange)="sideDeckChange($event)"></app-deck>
+        <app-deck-list *ngIf='tile.text == "Liste Deck"'
+                       [maindeckSelect]="modelMainDeckChange"
+                       [sidedeckSelect]="modelSideDeckChange"
+                       [extradeckSelect]="modelExtraDeckChange"></app-deck-list>
         <app-extra-deck *ngIf='tile.text == "Extra-Deck"'></app-extra-deck>
         <app-side-deck *ngIf='tile.text == "Side-Deck"'></app-side-deck>
         <app-card-info class = "app-card-info" *ngIf='tile.text == "Description"' [c]="idModelCard"></app-card-info>

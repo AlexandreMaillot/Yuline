@@ -25,3 +25,6 @@
 .navbar{
   color:azure;
 }
+.mat-toolbar.mat-primary {
+  background:#a13437;
+}

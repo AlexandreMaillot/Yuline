@@ -31,7 +31,7 @@ export class CardService {
               res.forEach(card => {
                 this.cards.push(card);
               });
-              resolve(this.cards);
+              resolve(<Card[]>this.cards);
             }
 
           },
